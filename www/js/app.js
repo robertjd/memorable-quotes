@@ -50,7 +50,7 @@ function randomBg() {
 */
 function randomQuote() {
     'use strict';
-    var fName = 'randomBg():';
+    var fName = 'randomQuote():';
     app.consoleLog(fName, 'entry');
     
     setInterval('changeQuote()', 5000);
