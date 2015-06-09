@@ -70,19 +70,19 @@ dev.consoleLog = function() {
 // ...probably okay to go as low as 3000ms, depends on external libraries, etc.
 dev.INSURANCE = 250;                   // ms, insurance on registering ready events detected
 dev.WINDOW_LOAD = 500;                 // ms, for combating premature window load events
-dev.BROWSER = 7000;                    // ms, detecting in a browser (probably best at >5 seconds)
+dev.BROWSER = 500;                    // ms, detecting in a browser (probably best at >5 seconds)
 dev.FAIL_SAFE = 10000;                 // ms, if all else fails, this saves our bacon :-)
 
 // Used to keep track of time when each of these items was triggered.
 // Sorry for the weird names in the isDeviceReady structure, it's done for
 // easier debugging and comparison of numbers when displayed in console.log messages.
-dev.isDeviceReady = {                   // listed in approximate order expected
-    a_startTime______:dev.timeStamp(),  // when we started execution of this module
-    b_fnDocumentReady:false,            // detected document.readyState == "complete"
-    c_cordova_ready__:false,            // detected cordova device ready event
-    d_xdk_ready______:false,            // detected Intel XDK device ready event
-    e_fnDeviceReady__:false,            // entered onDeviceReady()
-    f_browser_ready__:false             // detected browser container
+dev.isDeviceReady = {                    // listed in approximate order expected
+    a_startTime______: dev.timeStamp(),  // when we started execution of this module
+    b_fnDocumentReady: false,            // detected document.readyState == "complete"
+    c_cordova_ready__: false,            // detected cordova device ready event
+    d_xdk_ready______: false,            // detected Intel XDK device ready event
+    e_fnDeviceReady__: false,            // entered onDeviceReady()
+    f_browser_ready__: false             // detected browser container
 };
 
 // Where the device ready event ultimately ends up, regardless of environment.
@@ -205,7 +205,7 @@ dev.initDeviceReady = function() {
     dev.consoleLog(fName, "navigator.vendor:", navigator.vendor);
     dev.consoleLog(fName, "navigator.platform:", navigator.platform);
     dev.consoleLog(fName, "navigator.userAgent:", navigator.userAgent);
-
+    
     dev.consoleLog(fName, "exit");
 };
 
