@@ -4,7 +4,7 @@
 var dbConf = window.conf.db;
 
 /**
-* Funcion definida que crea la base da datos
+* Funcion definida que crea o abre la comunicacion con la base da datos
 */
 function createSqlLiteDb() {
     'use strict';
@@ -12,7 +12,8 @@ function createSqlLiteDb() {
     app.consoleLog(fName, 'entry');
     
     /**
-    * 
+    * Crea o abre la base de datos si 
+    * ya se encuentra creada
     */
     try {
         if(window.openDatabase) {
@@ -42,6 +43,10 @@ function createSqlLiteDb() {
     app.consoleLog(fName, 'exit');
 }
 
+/**
+* Crea las tablas dinamicamente
+* deacuerdo a los datos en la configuracion global
+*/
 function createTables(db) {
     'use strict';
     var fName = 'createTables(db):';
@@ -70,6 +75,10 @@ function createTables(db) {
     app.consoleLog(fName, 'exit');
 }
 
+/**
+* Crea las tablas dinamicamente
+* deacuerdo a los datos en la configuracion global
+*/
 function insertData(db) {
     'use strict';
     var fName = 'createTables(db):';
@@ -102,6 +111,10 @@ function insertData(db) {
     app.consoleLog(fName, 'exit');
 }
 
+/**
+* Obtiene los datos en forma
+* de array
+*/
 function getData(obj) {
     var arr = [];
     for(var key in obj) {
@@ -112,6 +125,9 @@ function getData(obj) {
     return arr.join(', ');
 }
 
+/**
+* Funcion callback de error
+*/
 function error(tx, err) {
     // err.message
     return false;

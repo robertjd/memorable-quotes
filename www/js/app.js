@@ -1,4 +1,9 @@
 /**
+* Configuracion global
+*/
+var updtime = window.conf.updtime;
+
+/**
 * Funcion declarada que inicializa el reloj
 */
 function initClock() {
@@ -7,7 +12,7 @@ function initClock() {
     app.consoleLog(fName, 'entry');
     
     updateClock();
-    setInterval('updateClock()', 60000);
+    setInterval('updateClock()', updtime.CLOCK);
     
     app.consoleLog(fName, 'exit');
 }
@@ -39,7 +44,7 @@ function randomBg() {
     var fName = 'randomBg():';
     app.consoleLog(fName, 'entry');
     
-    setInterval('changeBg()', 60000);
+    setInterval('changeBg()', updtime.BG);
     
     app.consoleLog(fName, 'exit');
 }
@@ -53,7 +58,7 @@ function randomQuote() {
     var fName = 'randomQuote():';
     app.consoleLog(fName, 'entry');
     
-    setInterval('changeQuote()', 5000);
+    setInterval('changeQuote()', updtime.QUOTE);
     
     app.consoleLog(fName, 'exit');
 }

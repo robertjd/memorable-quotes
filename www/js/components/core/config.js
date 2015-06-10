@@ -1,6 +1,10 @@
+/**
+* Configuracion global
+*/
 window.conf = {
     db: {
-        type: 'indexeddb', // sqllite || indexeddb
+        // sqllite || indexeddb
+        type: 'indexeddb',
         fileName: 'mrq',
         version: '', //1.0
         displayName: 'memorable random quotes db',
@@ -14,12 +18,12 @@ window.conf = {
                     {name: 'quote_text', type: 'varchar(100)', restrict: 'null'}
                 ],
                 data: [
-                    {id: 1, quote: 'Memorable quote 1'},
-                    {id: 2, quote: 'Memorable quote 2'},
-                    {id: 3, quote: 'Memorable quote 3'},
-                    {id: 4, quote: 'Memorable quote 4'},
-                    {id: 5, quote: 'Memorable quote 5'},
-                    {id: 6, quote: 'Memorable quote 6'}
+                    {id: 1, quote: 'Patience and fortitude conquer all things'},    // Ralph Waldo Emerson
+                    {id: 2, quote: 'Necessity is the mother of taking chances'},    // Mark Twain
+                    {id: 3, quote: 'Love all. Trust a few. Do wrong to none'},      // William Shakespeare
+                    {id: 4, quote: 'Whatever is begun in anger ends in shame'},     // Benjamin Franklin
+                    {id: 5, quote: 'I criticize by creation, not by finding fault'},// Cicero
+                    {id: 6, quote: 'Character is much easier kept than recovered'}  // Thomas Paine
                  ]
 
             },
@@ -42,10 +46,15 @@ window.conf = {
         ],
         indexedDb: {
             dbVersion: 1,
-            storeName: 'mrq',
-            storePrefix: 'IDBWrapper-',
+            storeName: 'table',
+            storePrefix: 'mrq-',
             keyPath: 'id',
             autoIncrement: true
         }
+    },
+    updtime: {
+        CLOCK: 60000,   // Actualizacion del reloj cada 1 minuto
+        BG: 60000,      // Actualizacion de la imagen de background cada 1 minuto
+        QUOTE: 5000     // Actualizacion de la frase celebre cada 5 segundos
     }
 };
