@@ -1,51 +1,80 @@
 /**
-* Funcion definida que actualiza la hora
-* en la pantalla principal de la applicacion
+* Modulo global del reloj de la aplicacion
 */
-function updateClock() {
+var clockModule = (function(doc) {
+    'use strict';
+    
     /**
-    * Obtiene la fecha actual del dia
+    * Definicion de la variable que se configura para
+    * mostrar la hora actualizada
     */
-    var currentTime = new Date();
+    var currentTimeString;
+    
+    /**
+    * Esta funcion se ejecuta segun el tiempo configurado
+    * en la variable global confModule.updtime.CLOCK
+    */
+    function update() {
+        setCurrentTimeString();
+        setCurrentTimeDisplay();
+    }
+    
+    /**
+    * Esta funcion calcula y concatena las siguientes variables
+    * currentHours, currentMinutes, timeOfDay en el formato 'H:MM PM/AM'
+    */
+    function setCurrentTimeString() {
+        /**
+        * Obtiene la fecha actual del dia
+        */
+        var currentTime = new Date();
 
-    /**
-    * Obtiene solo las horas y minutos
-    */
-    var currentHours = currentTime.getHours();
-    var currentMinutes = currentTime.getMinutes();
+        /**
+        * Obtiene solo las horas y minutos
+        */
+        var currentHours = currentTime.getHours();
+        var currentMinutes = currentTime.getMinutes();
 
-    /**
-    * Antepone un cero a los minutos si es menor de 10, por ejemplo 05
-    * haciendo zero left padding
-    */
-    currentMinutes = (currentMinutes < 10 ? '0' : '') + currentMinutes;
+        /**
+        * Antepone un cero a los minutos si es menor de 10, por ejemplo 05
+        * haciendo zero left padding
+        */
+        currentMinutes = (currentMinutes < 10 ? '0' : '') + currentMinutes;
 
-    /**
-    * Se selecciona AM como simbolo para antes de las 12
-    * y PM como simbolo para despues de las 12 del medio dia
-    */
-    var timeOfDay = (currentHours < 12) ? 'AM' : 'PM';
+        /**
+        * Se selecciona AM como simbolo para antes de las 12
+        * y PM como simbolo para despues de las 12 del medio dia
+        */
+        var timeOfDay = (currentHours < 12) ? 'AM' : 'PM';
 
-    /**
-    * Convierte al formato de 12 horas
-    */
-    currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
+        /**
+        * Convierte al formato de 12 horas
+        */
+        currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
 
-    /**
-    * Si la hora es 0 entonces lo convierte a las 12 como
-    * unica excepcion
-    */
-    currentHours = (currentHours == 0) ? 12 : currentHours;
+        /**
+        * Si la hora es 0 entonces lo convierte a las 12 como
+        * unica excepcion
+        */
+        currentHours = (currentHours == 0) ? 12 : currentHours;
 
+        /**
+        * Concatenacion del string que se debe mostrar finalmente
+        * en pantalla, el formato es por ejemplo '3:40 PM'
+        */
+        currentTimeString = currentHours + ':' + currentMinutes + ' ' + timeOfDay;
+    }
+    
     /**
-    * Concatenacion del string que se debe mostrar finalmente
-    * en pantalla, el formato es por ejemplo '3:40 PM'
+    * Esta funcion muestra en el html la hora actual
     */
-    var currentTimeString = currentHours + ':' + currentMinutes + ' ' + timeOfDay;
-
-    /**
-    * Se actualiza la hora configurada en el tag html5 <time/>
-    */
-//    document.querySelector('time')[0].innerHTML = currentTimeString;
-    document.getElementsByTagName('time')[0].innerHTML = currentTimeString;
-}
+    function setCurrentTimeDisplay() {
+        //doc.querySelector('time')[0].innerHTML = currentTimeString;
+        doc.getElementsByTagName('time')[0].innerHTML = currentTimeString;
+    }
+    
+    return {
+        update: update
+    };
+   
+})(document);

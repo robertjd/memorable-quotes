@@ -34,10 +34,10 @@ app.initEvents = function() {
     var fName = 'app.initEvents():';
     app.consoleLog(fName, 'entry');
 
-    initClock();
-    initDb();
-    randomBg();
-    randomQuote();
+    appModule.initClock();
+    appModule.initDb();
+    appModule.initBg();
+    appModule.initQuote();
 
     // just for debug, not required; keep it if you want it or get rid of it
     app.initDebug();

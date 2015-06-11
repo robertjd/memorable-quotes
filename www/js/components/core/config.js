@@ -1,17 +1,17 @@
 /**
-* Configuracion global
+* Modulo de Configuracion global
 */
-window.conf = {
-    db: {
-        // sqllite || indexeddb
-        type: 'indexeddb',
+var confModule = (function() {
+    
+    var db = {
+        type: 1, // sqllite:0 || indexeddb:1
         fileName: 'mrq',
         version: '', //1.0
         displayName: 'memorable random quotes db',
         maxSize: 1024,
         tables: [
             {
-                name: 'mrq_quotes', 
+                name: 'quotes', 
                 cols: [
                     {name: 'quote_id', type: 'int(5)', 
                      restrict: 'primary key asc unique not null'},
@@ -28,7 +28,7 @@ window.conf = {
 
             },
             {
-                name: 'mrq_bg',
+                name: 'bg',
                 cols: [
                     {name:'bg_id', type: 'int(5)', 
                      restrict: 'primary key asc unique not null'},
@@ -51,10 +51,17 @@ window.conf = {
             keyPath: 'id',
             autoIncrement: true
         }
-    },
-    updtime: {
+    };
+    
+    var updtime = {
         CLOCK: 60000,   // Actualizacion del reloj cada 1 minuto
-        BG: 60000,      // Actualizacion de la imagen de background cada 1 minuto
+        BG: 120000,     // Actualizacion de la imagen de background cada 2 minutos
         QUOTE: 5000     // Actualizacion de la frase celebre cada 5 segundos
-    }
-};
+    };
+    
+    return {
+        db: db,
+        updtime: updtime
+    };
+    
+})();
