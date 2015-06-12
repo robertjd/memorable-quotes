@@ -22,7 +22,7 @@ var indexedDbModule = (function(app, dbConf) {
         * el store de quotes
         */
         var qConf = dbConf.indexedDb;
-        qConf.storeName = 'quotes';
+        qConf.storeName = dbConf.tables[0].name;
         qConf.onStoreReady = populateQuotesStore;
         var quotes = new IDBStore(qConf);
 
@@ -31,7 +31,7 @@ var indexedDbModule = (function(app, dbConf) {
         * el store de url de imagenes de background
         */
         var bConf = dbConf.indexedDb;
-        bConf.storeName = 'bg';
+        bConf.storeName = dbConf.tables[1].name;
         bConf.onStoreReady = populateBgStore;
         var bg = new IDBStore(bConf);
 
@@ -45,7 +45,7 @@ var indexedDbModule = (function(app, dbConf) {
     function populateQuotesStore() {
         var fName = 'populateQuotesStore():';
         app.consoleLog(fName, 'entry');
-
+        
         var quotesData = dbConf.tables[0].data;
         this.putBatch(quotesData, function (result) {
             app.consoleLog(fName, 'batch() call success. Result: ' + result);

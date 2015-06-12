@@ -247,10 +247,10 @@ body:not(#afui) .upage-outer {
   position: absolute !important;
 }
 .uib_row_1:not(.cright) > .col {
-  padding-right: 20px;
+  padding-right: 0px;
 }
 .uib_row_1.cright > .col {
-  padding-left: 20px;
+  padding-left: 0px;
 }
 @media all {
   .col-0_12-12 {
@@ -266,8 +266,8 @@ body:not(#afui) .upage-outer {
 }
 @media all {
   #afui .grid-pad {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 0px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -275,17 +275,19 @@ body:not(#afui) .upage-outer {
 @media all and (min-width: 0px) {
   #afui .row-height-1 > .col > .content-area {
     min-height: 100px;
+    height: 50px;
   }
 }
 @media all {
   #afui .random-bg-height > .col > .content-area {
     min-height: 300px;
+    height: 392px;
   }
 }
 @media all {
   #afui .random-bg-pad {
-    padding-top: 150px;
-    padding-bottom: 10px;
+    padding-top: 110px;
+    padding-bottom: 0px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -327,7 +329,6 @@ body:not(#afui) .upage-outer {
 }
 @media all {
   #afui .random-bg {
-    background-image: url("../images/bg01.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;

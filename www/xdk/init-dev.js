@@ -53,7 +53,7 @@ if( window.performance && performance.now ) {
 
 // Set to "true" if you want the console.log messages to appear.
 // Helpful for debugging and understanding how this thing works.
-dev.LOG = true;
+dev.LOG = false;
 
 // only emits console.log messages if dev.LOG != false
 dev.consoleLog = function() {

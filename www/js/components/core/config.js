@@ -35,17 +35,35 @@ var confModule = (function() {
                     {name: 'bg_img', type: 'varchar(100)', restrict: 'null'}
                 ],
                 data: [
-                    {id: 1, img: '../www/images/bg01.png'},
-                    {id: 2, img: '../www/images/bg02.png'},
-                    {id: 3, img: '../www/images/bg03.png'},
-                    {id: 4, img: '../www/images/bg04.png'},
-                    {id: 5, img: '../www/images/bg05.png'},
-                    {id: 6, img: '../www/images/bg06.png'}
+                    {id: 1, 
+                     imgsmall: 'images/bg01-small-320x480.png', 
+                     imgmedium: 'images/bg01-medium-768x1024.png', 
+                     imglarge: 'images/bg01-large-1366x641.png'},
+                    {id: 2, 
+                     imgsmall: 'images/bg02-small-320x480.png', 
+                     imgmedium: 'images/bg02-medium-768x1024.png', 
+                     imglarge: 'images/bg02-large-1366x641.png'},
+                    {id: 3, 
+                     imgsmall: 'images/bg03-small-320x480.png', 
+                     imgmedium: 'images/bg03-medium-768x1024.png', 
+                     imglarge: 'images/bg03-large-1366x641.png'},
+                    {id: 4, 
+                     imgsmall: 'images/bg04-small-320x480.png', 
+                     imgmedium: 'images/bg04-medium-768x1024.png', 
+                     imglarge: 'images/bg04-large-1366x641.png'},
+                    {id: 5, 
+                     imgsmall: 'images/bg05-small-320x480.png', 
+                     imgmedium: 'images/bg05-medium-768x1024.png', 
+                     imglarge: 'images/bg05-large-1366x641.png'},
+                    {id: 6, 
+                     imgsmall: 'images/bg06-small-320x480.png', 
+                     imgmedium: 'images/bg06-medium-768x1024.png', 
+                     imglarge: 'images/bg06-large-1366x641.png'}
                  ]
             }
         ],
         indexedDb: {
-            dbVersion: 1,
+            dbVersion: 2,
             storeName: 'table',
             storePrefix: 'mrq-',
             keyPath: 'id',
@@ -54,8 +72,8 @@ var confModule = (function() {
     };
     
     var updtime = {
-        CLOCK: 60000,   // Actualizacion del reloj cada 1 minuto
-        BG: 120000,     // Actualizacion de la imagen de background cada 2 minutos
+        CLOCK: 30000,   // Actualizacion del reloj cada 1 minuto
+        BG: 60000,      // Actualizacion de la imagen de background cada 2 minutos
         QUOTE: 5000     // Actualizacion de la frase celebre cada 5 segundos
     };
     

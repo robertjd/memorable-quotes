@@ -20,8 +20,8 @@ app.LOG = app.LOG || false;
 // only emits console.log messages if app.LOG != false
 app.consoleLog = function() {
     if(app.LOG) {
-        var args = Array.prototype.slice.call(arguments, 0) ;
-        console.log.apply(console, args) ;
+        var args = Array.prototype.slice.call(arguments, 0);
+        console.log.apply(console, args);
     }
 };
 
