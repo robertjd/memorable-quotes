@@ -1,5 +1,6 @@
 /**
 * Modulo global del reloj de la aplicacion
+* @param document
 */
 var clockModule = (function(doc) {
     'use strict';

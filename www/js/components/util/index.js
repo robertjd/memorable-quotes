@@ -47,6 +47,7 @@ var utilModule = (function(app, doc, idbm, mMatch){
         function smallMatch(mq) {
             if (mq.matches) {
                 randomBg.style.backgroundSize = 'cover';
+                randomBg.style.paddingTop = '46%';
                 randomBg.style.backgroundPosition = 'top';
                 randomBg.style.backgroundRepeat = 'no-repeat';
                 randomBg.style.backgroundImage = 'url(' + item.imgsmall + ')';
