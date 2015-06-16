@@ -1,7 +1,7 @@
 /**
 * Modulo Util
 */
-var utilModule = (function(app, doc, idbm, mMatch){
+var utilModule = (function(app, doc, idbm){
     'use strict';
     
     return {
@@ -17,16 +17,15 @@ var utilModule = (function(app, doc, idbm, mMatch){
     * dado el parametro url
     */
     function setRandomBg(item) {
-        var randomBg = doc.getElementsByClassName('random-bg')[0];
+        var randomBg = doc.getElementsByTagName('body')[0];
         
         /**
         * Configuracion programatica de los Media Query
         * para que las imagenes cumplan con el estandar
         * responsive design
         */
-        var smallmq = window.matchMedia('only screen and (max-width: 480px)');
-        var mediummq = window.matchMedia('only screen and (min-width: 481px) and (max-width: 768px)');
-        var largemq = window.matchMedia('only screen and (min-width: 769px)');
+        var smallmq = window.matchMedia('only screen and (max-width: 767px)');
+        var largemq = window.matchMedia('only screen and (min-width: 768px)');
 
         /**
         * Se configuran los listeners para cada tamanio de imagen
@@ -34,8 +33,6 @@ var utilModule = (function(app, doc, idbm, mMatch){
         */
         smallmq.addListener(smallMatch);
         smallMatch(smallmq);
-        mediummq.addListener(mediumMatch);
-        mediumMatch(mediummq);
         largemq.addListener(largeMatch);
         largeMatch(largemq);
         
@@ -45,28 +42,8 @@ var utilModule = (function(app, doc, idbm, mMatch){
         * tipo small
         */
         function smallMatch(mq) {
-            if (mq.matches) {
-                randomBg.style.backgroundSize = 'cover';
-                randomBg.style.paddingTop = '46%';
-                randomBg.style.backgroundPosition = 'top';
-                randomBg.style.backgroundRepeat = 'no-repeat';
+            if (mq.matches)
                 randomBg.style.backgroundImage = 'url(' + item.imgsmall + ')';
-            }
-        }
-
-        /**
-        * Listener para actualizar el estilo dinamicamente
-        * de la imagen del background cuando la pantalla es de
-        * tipo medium
-        */
-        function mediumMatch(mq) {
-            if (mq.matches) {
-                randomBg.style.paddingTop = '36%';
-                randomBg.style.backgroundSize = 'cover';
-                randomBg.style.backgroundPosition = 'top';
-                randomBg.style.backgroundRepeat = 'no-repeat';
-                randomBg.style.backgroundImage = 'url(' + item.imgmedium + ')';
-            }
         }
 
         /**
@@ -75,13 +52,8 @@ var utilModule = (function(app, doc, idbm, mMatch){
         * tipo large
         */
         function largeMatch(mq) {
-            if (mq.matches) {
-                randomBg.style.paddingTop = '16%';
-                randomBg.style.backgroundSize = 'cover';
-                randomBg.style.backgroundPosition = 'top';
-                randomBg.style.backgroundRepeat = 'no-repeat';
+            if (mq.matches)
                 randomBg.style.backgroundImage = 'url(' + item.imglarge + ')';
-            }
         }
     }
 
@@ -145,4 +117,4 @@ var utilModule = (function(app, doc, idbm, mMatch){
         return item;
     }
     
-})(window.app, document, indexedDbModule, window.mediaMatch);
+})(window.app, document, indexedDbModule);
