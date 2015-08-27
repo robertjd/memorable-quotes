@@ -1,0 +1,29 @@
+{
+  "name": "mt",
+  "version": "0.0.0",
+  "authors": [
+    "jcortes <jacortesmahmud@gmail.com>"
+  ],
+  "description": "memorable random quotes",
+  "keywords": [
+    "javascript",
+    "html",
+    "css"
+  ],
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "a0-angular-storage": "~0.0.12",
+    "angular-jwt": "~0.0.9",
+    "angular-mocks": "~1.4.1",
+    "angular-resource": "~1.4.4",
+    "angularjs": "~1.4.3",
+    "stormpath-sdk-angularjs": "~0.5.2"
+  }
+}

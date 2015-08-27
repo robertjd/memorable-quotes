@@ -1,0 +1,18 @@
+<form ng-submit="submit()">
+	<ion-list>
+			<label class="item item-input">
+					<span class="input-label">Username</span>
+					<input type="text" ng-model="formModel.username" required>
+			</label>
+			<label class="item item-input">
+					<span class="input-label">Password</span>
+					<input type="password" ng-model="formModel.password" required>
+			</label>
+	</ion-list>
+
+	<button type="submit" class="button button-block button-positive">Login</button>
+	<p class="text-center">
+			<a href="#/forgotpass">Forgot your password?</a>
+			<a href="#/signup">Signup</a>
+	</p>
+</form>

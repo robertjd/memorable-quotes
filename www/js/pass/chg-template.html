@@ -1,0 +1,23 @@
+<ion-view view-title="Reset you password">
+    <ion-header-bar>
+        <h1 class="title">Change password</h1>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <ion-list>
+            <label class="item item-input">
+                <span class="input-label">Current password</span>
+                <input type="password" ng-model="cpc.password" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">New password</span>
+                <input type="password" ng-model="cpc.newPassword" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Confirm new password</span>
+                <input type="password" ng-model="cpc.confirmPassword" required>
+            </label>
+        </ion-list>
+            
+        <button class="button button-block button-positive" ng-click="cpc.doReset()">Reset</button>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,54 @@
+<ion-view view-title="Register">
+    <ion-header-bar>
+        <h1 class="title">Register</h1>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <ion-list>
+            <label class="item item-input">
+                <span class="input-label">Username</span>
+                <input type="text" ng-model="sc.user.username" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" ng-model="sc.user.password" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Confirm password</span>
+                <input type="password" ng-model="sc.confPass" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Firstname</span>
+                <input type="text" ng-model="sc.user.firstname" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Lastname</span>
+                <input type="text" ng-model="sc.user.lastname" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="email" ng-model="sc.user.email" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Zip Code</span>
+                <input type="text" ng-model="sc.user.zcode" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Birthdate</span>
+                <input type="date" ng-model="sc.user.birthdate" required>
+            </label>
+
+            <label class="item item-radio">
+                <input type="radio" ng-model="sc.user.gender" name="gender" value="m" checked>
+                <div class="item-content">Male</div>
+                <i class="radio-icon ion-checkmark-round"></i>
+            </label>
+            <label class="item item-radio">
+                <input type="radio" ng-model="sc.user.gender" name="gender" value="f">
+                <div class="item-content">Female</div>
+                <i class="radio-icon ion-checkmark-round"></i>
+            </label>
+
+            <button class="button button-block button-positive" ng-click="sc.doSignup()">Register</button>
+        </ion-list>
+    </ion-content>
+</ion-view>

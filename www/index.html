@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Memorable Quotes</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        
+        <style>
+            @-ms-viewport { width: 100vw ; zoom: 100% ; }                          
+            @viewport { width: 100vw ; zoom: 100% ; }
+            @-ms-viewport { user-zoom: fixed ; }                                    
+            @viewport { user-zoom: fixed ; }
+        </style>
+       
+        <link rel="stylesheet" href="bower_components/ionic/css/ionic.min.css">
+        <link rel="stylesheet" href="css/app.css">
+
+<!--        <script src="http://debug-software.intel.com/target/target-script-min.js#oCMBgmatM1zt12ckvu9CwnGFXb8BoLHzB7C3-NbJN2s"></script>-->
+    </head>
+
+    <body>
+<!--        <script src="http://debug-software.intel.com/target/target-script-min.js#oCMBgmatM1zt12ckvu9CwnGFXb8BoLHzB7C3-NbJN2s"></script>-->
+        
+        <div ng-app="app">
+            <ion-nav-bar>
+                <ion-nav-back-button class="button-icon ion-arrow-left-c">
+                </ion-nav-back-button>
+            </ion-nav-bar>
+
+            <ion-nav-view></ion-nav-view>
+        </div>
+        
+        <!-- ionic/angularjs js -->
+        <script src="bower_components/ionic/js/ionic.bundle.js"></script>
+        <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+        <script src="bower_components/a0-angular-storage/dist/angular-storage.min.js"></script>
+        <script src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
+        <script src="bower_components/stormpath-sdk-angularjs/dist/stormpath-sdk-angularjs.js"></script>
+        <script src="bower_components/stormpath-sdk-angularjs/dist/stormpath-sdk-angularjs.tpls.js"></script>
+        <script src="js/lib/idbstore.min.js"></script>
+        <script src="js/lib/clock.js"></script>
+        <script src="js/lib/data.js"></script>
+
+        <!-- cordova script (this will be a 404 during development) -->
+        <script src="cordova.js" id="xdkJScordova_"></script>
+        <script src="intelxdk.js"></script>
+        <script src="js/init-app.js"></script>
+        <script src="xdk/init-dev.js"></script>
+        
+        <!-- your app's js -->
+        <script src="js/app.module.js"></script>
+        <script src="js/core/core.module.js"></script>
+        <script src="js/api/api.module.js"></script>
+        <script src="js/menu/menu.module.js"></script>
+        <script src="js/login/login.module.js"></script>
+        <script src="js/signup/signup.module.js"></script>
+        <script src="js/pass/pass.module.js"></script>
+        <script src="js/home/home.module.js"></script>
+        
+        <script src="js/core/core.constants.js"></script>
+        <script src="js/core/core.init.js"></script>
+        <script src="js/core/core.route.js"></script>
+        
+        <script src="js/api/api.auth.service.js"></script>
+        <script src="js/api/api.user.service.js"></script>
+        
+        <script src="js/login/login.route.js"></script>
+        <script src="js/login/login.controller.js"></script>
+        <script src="js/signup/signup.route.js"></script>
+        <script src="js/signup/signup.controller.js"></script>
+        <script src="js/pass/pass.route.js"></script>
+        <script src="js/pass/pass.controller.js"></script>
+        
+        <script src="js/menu/menu.route.js"></script>
+        <script src="js/menu/menu.controller.js"></script>
+        <script src="js/home/home.route.js"></script>
+        <script src="js/home/home.controller.js"></script>
+    </body>
+</html>
