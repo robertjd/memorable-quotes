@@ -4,8 +4,7 @@
 !/www
 !/docs
 !/config.xml
-!/README.md
-!/LICENSE.md
+!/*.md
 !/intelxdk.*.xml
 !/*.xdk*
 !/.gitignore
@@ -17,3 +16,4 @@
 !/bower.json
 !/package.json
 !/*.js
+!/ionic.project
