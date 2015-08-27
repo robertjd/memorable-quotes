@@ -16,7 +16,12 @@ Install npm dependencies to run the express server
 npm install
 ```
 
-Run with
+Run express
+```bash
+npm run dev
+```
+
+Run ionic
 ```bash
 ionic serve -l
 ```
