@@ -3,8 +3,11 @@
 
     // Ionic Starter App
     angular.module('app.core')
+    .config(['STORMPATH_CONFIG',function(STORMPATH_CONFIG){
+        STORMPATH_CONFIG.ENDPOINT_PREFIX = 'http://localhost:9000';
+    }])
     .run(run);
-    
+
     run.$inject = ['$ionicPlatform', '$httpBackend', '$rootScope', '$state', 'store', 'jwtHelper', '$stormpath'];
     /* @ngInject */
     function run($ionicPlatform, $httpBackend, $rootScope, $state, store, jwtHelper, $stormpath) {
@@ -19,10 +22,10 @@
                 StatusBar.styleDefault();
             }
         });
-        
+
         // Enable to get templates
         $httpBackend.whenGET(/\**.html/).passThrough();
-        
+
         // You can make GET, POST, PUT, PATCH, DELETE to the api
 //        var usrRegExp = /\/api\/users\/*/;
 //        $httpBackend.whenGET(usrRegExp).passThrough();
@@ -30,14 +33,14 @@
 //        $httpBackend.whenPUT(usrRegExp).passThrough();
 //        $httpBackend.whenPATCH(usrRegExp).passThrough();
 //        $httpBackend.whenDELETE(usrRegExp).passThrough();
-			
+
 				var apiRegExp = /\/*\/*/;
         $httpBackend.whenGET(apiRegExp).passThrough();
         $httpBackend.whenPOST(apiRegExp).passThrough();
         $httpBackend.whenPUT(apiRegExp).passThrough();
         $httpBackend.whenPATCH(apiRegExp).passThrough();
         $httpBackend.whenDELETE(apiRegExp).passThrough();
-        
+
 //        $rootScope.$on('$stateChangeStart', function(e, next) {
 //            if (next.data && next.data.requiresLogin) {
 //                if (!store.get('token') || jwtHelper.isTokenExpired(store.get('token'))) {
@@ -46,11 +49,11 @@
 //                }
 //            }
 //        });
-				
+
 //				$stormpath.uiRouter({
 //					loginState: 'login',
 //					defaultPostLoginState: 'main'
 //				});
     }
-    
+
 })();

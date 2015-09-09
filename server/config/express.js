@@ -7,18 +7,20 @@
 var express = require('express');
 var compression = require('compression');
 var bodyParser = require('body-parser');
-var cors = require('cors');
+var cookieParser = require('cookie-parser');
+// var cors = require('cors');
 
 var path = require('path');
 var config = require('./env');
 
 module.exports = function(app) {
     var env = app.get('env');
-    
+
     app.use(compression());
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
-    app.use(cors());  
+    app.use(cookieParser());
+    // app.use(cors());
     app.use(function(err, req, res, next) {
         if (err.name === 'StatusError') {
             res.send(err.status, err.message);
@@ -26,7 +28,7 @@ module.exports = function(app) {
             next(err);
         }
     });
-  
+
     if ('production' === env) {
         console.log('Running production env ...');
     }
