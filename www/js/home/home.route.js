@@ -13,11 +13,11 @@
             views: {
                 'menuContent': {
                     templateUrl: 'js/home/home-template.html',
-                    controller: 'HomeCtrl as hc'
+                    controller: 'HomeCtrl as hc',
+										sp: {
+												authenticate: true
+										}
                 }
-            },
-            data: {
-                requiresLogin: true
             }
         });
     }

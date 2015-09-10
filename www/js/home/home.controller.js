@@ -4,9 +4,9 @@
     angular.module('app.home')
     .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = ['$scope', '$interval', '$state', 'store', 'jwtHelper', 'mtUserSrv'];
+    HomeCtrl.$inject = ['$scope', '$interval', '$state', 'store', 'jwtHelper'];
     /* @ngInject */
-    function HomeCtrl($scope, $interval, $state, store, jwtHelper, mtUserSrv) {
+    function HomeCtrl($scope, $interval, $state, store, jwtHelper) {
         var vm = this;
         
         //vm.token = store.get('token');

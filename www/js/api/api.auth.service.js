@@ -1,43 +1,54 @@
 (function () {
-    'use strict';
+	'use strict';
 
-    angular.module('app.api')
-    .factory('mtAuthSrv', mtAuthSrv);
-    
-    mtAuthSrv.$inject = ['$http', '$q', 'API_PREFIX', 'API_USERS_ME'];
-    /* @ngInject */
-    function mtAuthSrv($http, $q, API_PREFIX, API_USERS_ME) {
-        
-        var service = {
-            login: login
-        };
-        return service;
-        
-        function login(user) {
-            var deferred = $q.defer();
-						
-						if(!user.username || !user.password)
-								deferred.resolve({data: 'Username and Passwore are required'});
-					
-            var opts = {
-                url: API_PREFIX + API_USERS_ME,
-                method: 'POST',
-                data: { user: user }
-            };
-            
-            $http(opts)
-            .then(loginSuccess, loginError);
-            
-            function loginSuccess(response) {
-                deferred.resolve(response);
-            }
+	angular.module('app.api')
+	.factory('mtAuthSrv', mtAuthSrv);
 
-            function loginError(response) {
-                deferred.reject(response);
-            }
-            
-            return deferred.promise;
-        }
-    }
-    
+	mtAuthSrv.$inject = ['$http', '$q', 'SP_API_PREFIX', 'SP_API_OAUTH', '$spFormEncoder'];
+	/* @ngInject */
+	function mtAuthSrv($http, $q, SP_API_PREFIX, SP_API_OAUTH, $spFormEncoder) {
+
+		var service = {
+			oauthToken: oauthToken
+		};
+
+		return service;
+
+		function oauthToken(user) {
+			var deferred = $q.defer();
+
+			if(!user.username || !user.password)
+					deferred.resolve({data: 'Username and Passwore are required'});
+			
+			var opts = {
+				url: SP_API_PREFIX + SP_API_OAUTH,
+				method: 'POST',
+				data: { username: user.username, password: user.password }
+			};
+
+			var form = $spFormEncoder.formPost({
+				url: SP_API_PREFIX + SP_API_OAUTH,
+				method: 'POST',
+				withCredentials: true,
+				data: user,
+				params: {
+					'grant_type': 'password'
+				}
+			});
+			
+			$http(form)
+			.then(loginSuccess, loginError);
+
+			function loginSuccess(response) {
+					deferred.resolve(response);
+			}
+
+			function loginError(response) {
+					deferred.reject(response);
+			}
+
+			return deferred.promise;
+		}
+	}
+
 })();

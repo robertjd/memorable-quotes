@@ -12,7 +12,10 @@
             url: '/menu',
             abstract: true,
             templateUrl: 'js/menu/menu-template.html',
-            controller: 'MenuCtrl as mc'
+            controller: 'MenuCtrl as mc',
+						sp: {
+								authenticate: true
+						}
         });
     }
     

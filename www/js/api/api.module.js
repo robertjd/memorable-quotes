@@ -1,8 +1,6 @@
 (function () {
     'use strict';
 
-    angular.module('app.api', [
-        'app.core'
-    ]);
+    angular.module('app.api', []);
     
 })();
