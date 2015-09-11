@@ -3,7 +3,7 @@
 
     angular.module('app.core')
     .run(run);
-    
+
     run.$inject = ['$ionicPlatform', '$rootScope', '$httpBackend', '$state', 'store', 'jwtHelper', '$stormpath'];
     /* @ngInject */
     function run($ionicPlatform, $rootScope, $httpBackend, $state, store, jwtHelper, $stormpath) {
@@ -18,10 +18,10 @@
                 StatusBar.styleDefault();
             }
         });
-        
+
         // Enable to get templates
         $httpBackend.whenGET(/\**.html/).passThrough();
-        
+
         // You can make GET, POST, PUT, PATCH, DELETE to the api
 				var apiRegExp = /\/*\/*/;
         $httpBackend.whenGET(apiRegExp).passThrough();
@@ -38,11 +38,10 @@
 //                }
 //            }
 //        });
-				
-//				$stormpath.uiRouter({
-//					loginState: 'login',
-//					defaultPostLoginState: 'menu.home'
-//				});
+    	$stormpath.uiRouter({
+    		loginState: 'login',
+    		defaultPostLoginState: 'menu.home'
+    	});
     }
-    
+
 })();

@@ -14,12 +14,13 @@
                 'menuContent': {
                     templateUrl: 'js/home/home-template.html',
                     controller: 'HomeCtrl as hc',
-										sp: {
-												authenticate: true
-										}
+
                 }
+            },
+            sp: {
+                authenticate: true
             }
         });
     }
-    
+
 })();
