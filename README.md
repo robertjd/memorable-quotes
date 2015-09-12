@@ -16,6 +16,11 @@ Install npm dependencies to run the express server
 npm install
 ```
 
+Modify the file .env to custom your own Stormpath variables and run
+```bash
+source .env
+```
+
 Run express
 ```bash
 npm run dev
