@@ -21,7 +21,7 @@
 		});
 
 		$stormpath.uiRouter({
-			loginState: 'login',
+			/*loginState: 'login',*/
 			defaultPostLoginState: 'menu.home'
 		});
 		
