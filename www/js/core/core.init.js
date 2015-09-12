@@ -4,20 +4,20 @@
 	angular.module('app.core')
 	.run(run);
 
-	run.$inject = ['$ionicPlatform', '$rootScope', '$httpBackend', '$stormpath'];
+	run.$inject = ['$ionicPlatform', '$rootScope', '$httpBackend', '$ionicLoading', '$stormpath'];
 	/* @ngInject */
-	function run($ionicPlatform, $rootScope, $httpBackend, $stormpath) {
+	function run($ionicPlatform, $rootScope, $httpBackend, $ionicLoading, $stormpath) {
 		
 		$ionicPlatform.ready(function() {
-				// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-				// for form inputs)
-				if (window.cordova && window.cordova.plugins.Keyboard) {
-						cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-				}
-				if (window.StatusBar) {
-						// org.apache.cordova.statusbar required
-						StatusBar.styleDefault();
-				}
+			// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+			// for form inputs)
+			if (window.cordova && window.cordova.plugins.Keyboard) {
+				cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+			}
+			if (window.StatusBar) {
+				// org.apache.cordova.statusbar required
+				StatusBar.styleDefault();
+			}
 		});
 
 		$stormpath.uiRouter({
@@ -31,6 +31,14 @@
 		
 		$rootScope.$on('$notLoggedin', function(event) {
 			console.log('$notLoggedin event', event.targetScope);
+		});
+		
+		$rootScope.$on('loading:show', function() {
+			$ionicLoading.show({template: 'loading ...'});
+		});
+
+		$rootScope.$on('loading:hide', function() {
+			$ionicLoading.hide();
 		});
 		
 		// Enable to get templates
