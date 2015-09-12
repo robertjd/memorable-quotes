@@ -4,9 +4,9 @@
     angular.module('app.login')
     .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$scope', '$state', '$ionicPopup', 'store', '$auth'];
+    LoginCtrl.$inject = ['$state', '$ionicPopup', '$auth'];
     /* @ngInject */
-    function LoginCtrl($scope, $state, $ionicPopup, store, $auth) {
+    function LoginCtrl($state, $ionicPopup, $auth) {
 			var vm = this;
 
 			// Form data for the login
@@ -19,7 +19,6 @@
 			};
 
 			function oauthTokenSuccess(response) {
-//				store.set('token', response.data.token);
 				$state.go('menu.home', {}, {reload: true});
 			}
 
@@ -28,7 +27,6 @@
 			}
 
 			function showError(reason) {
-				console.log(reason);
 				$ionicPopup.alert({
 						title: 'Login failed.',
 						template: reason.data.message || reason.data.errorMessage

@@ -14,33 +14,13 @@
         vm.user = {};
     }
     
-    ChgpassCtrl.$inject = ['$scope', '$state', '$ionicPopup', 'store', 'mtUserSrv'];
+    ChgpassCtrl.$inject = ['$scope', '$state', '$ionicPopup', '$user'];
     /* @ngInject */
-    function ChgpassCtrl($scope, $state, $ionicPopup, store, mtUserSrv) {
-        var vm = this;
-        
-        vm.doReset = function() {            
-            //var token = jwtHelper.decodeToken(store.get('token'));
-            mtUserSrv.chgpass(store.get('token'), vm.password, vm.newPassword, vm.confirmPassword)
-            .then(chgpassSuccess, showError);
-        };
-        
-        function chgpassSuccess(response) {
-            vm.password = undefined;
-            vm.newPassword = undefined;
-            vm.confirmPassword = undefined;
-            $ionicPopup.alert({
-                title: 'Success',
-                template: response.data
-            });
-        }
-        
-        function showError(reason) {
-            $ionicPopup.alert({
-                title: 'Change password failed.',
-                template: reason.data
-            });
-        }
+    function ChgpassCtrl($scope, $state, $ionicPopup, $user) {
+			var vm = this;
+
+			vm.doReset = function() {
+			};
     }
     
 })();

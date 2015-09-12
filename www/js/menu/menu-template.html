@@ -18,14 +18,14 @@
     </ion-header-bar>
     <ion-content>
         <ion-list>
-            <ion-item nav-clear menu-close href="#/menu/home">
+            <ion-item nav-clear menu-close ui-sref="menu.home">
                 Home
             </ion-item>
-            <ion-item nav-clear menu-close href="#/menu/chgpass">
+            <ion-item nav-clear menu-close ui-sref="menu.chgpass">
                 Change password
             </ion-item>
-            <ion-item nav-clear menu-close class="ion-log-out" ng-click="mc.doLogout()">
-                Logout
+            <ion-item nav-clear menu-close class="ion-log-out">
+               <a ui-sref="login" sp-logout>Logout</a>
             </ion-item>
         </ion-list>
     </ion-content>

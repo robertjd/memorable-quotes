@@ -18,11 +18,11 @@
             </label>
             <label class="item item-input">
                 <span class="input-label">Firstname</span>
-                <input type="text" ng-model="sc.user.firstname" required>
+                <input type="text" ng-model="sc.user.givenName" required>
             </label>
             <label class="item item-input">
                 <span class="input-label">Lastname</span>
-                <input type="text" ng-model="sc.user.lastname" required>
+                <input type="text" ng-model="sc.user.surname" required>
             </label>
             <label class="item item-input">
                 <span class="input-label">Email</span>
@@ -30,20 +30,20 @@
             </label>
             <label class="item item-input">
                 <span class="input-label">Zip Code</span>
-                <input type="text" ng-model="sc.user.zcode" required>
+                <input type="text" ng-model="sc.user.customData.zcode" required>
             </label>
             <label class="item item-input">
                 <span class="input-label">Birthdate</span>
-                <input type="date" ng-model="sc.user.birthdate" required>
+                <input type="date" ng-model="sc.user.customData.birthdate" required>
             </label>
 
             <label class="item item-radio">
-                <input type="radio" ng-model="sc.user.gender" name="gender" value="m" checked>
+                <input type="radio" ng-model="sc.user.customData.gender" name="gender" value="m" checked>
                 <div class="item-content">Male</div>
                 <i class="radio-icon ion-checkmark-round"></i>
             </label>
             <label class="item item-radio">
-                <input type="radio" ng-model="sc.user.gender" name="gender" value="f">
+                <input type="radio" ng-model="sc.user.customData.gender" name="gender" value="f">
                 <div class="item-content">Female</div>
                 <i class="radio-icon ion-checkmark-round"></i>
             </label>
