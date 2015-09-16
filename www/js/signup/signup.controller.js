@@ -4,31 +4,31 @@
     angular.module('app.signup')
     .controller('SignupCtrl', SignupCtrl);
 
-    SignupCtrl.$inject = ['$ionicPopup', '$state', '$auth'];
+    SignupCtrl.$inject = ['$ionicPopup', '$state', '$user'];
     /* @ngInject */
-    function SignupCtrl($ionicPopup, $state, $auth) {
+    function SignupCtrl($ionicPopup, $state, $user) {
         var vm = this;
         
         // User data for the signup
-        vm.user = {};
+        //vm.user = {};
 
-        vm.doSignup = function() {
+        vm.doSignup = function(user) {
             // User form validations
             if(!vm.confPass ||
-							 !vm.user.username ||
-               !vm.user.password ||
-               !vm.user.givenName ||
-               !vm.user.surname ||
-               !vm.user.email ||
-               !vm.user.customData.birthdate ||
-               !vm.user.customData.gender) {
+							 !user.username ||
+               !user.password ||
+               !user.givenName ||
+               !user.surname ||
+               !user.email ||
+               !user.customData.birthdate ||
+               !user.customData.gender) {
                 return showError({data: {error: 'User data is required'}});
             }
             
-            if(vm.user.password !==  vm.confPass)
+            if(user.password !==  vm.confPass)
                 return showError({data: {error: 'Password does not match'}});
             
-						$auth.create(vm.user)
+						$user.create(user)
 						.then(signupSuccess, signupError);
         };
         
@@ -39,6 +39,9 @@
 						
 					} else {
 						// The account requires email verification
+						//$state.go('login', {}, {reload: true});
+						// At the moment we don't require email verification
+						console.log(created);
 					}
         }
 

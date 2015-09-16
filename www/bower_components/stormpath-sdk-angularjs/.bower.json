@@ -1,6 +1,6 @@
 {
   "name": "stormpath-sdk-angularjs",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "main": [
     "dist/stormpath-sdk-angularjs.min.js",
     "dist/stormpath-sdk-angularjs.tpls.min.js"
@@ -29,14 +29,14 @@
     "angular": ">=1.2.*"
   },
   "homepage": "https://github.com/stormpath/stormpath-sdk-angularjs",
-  "_release": "0.5.2",
+  "_release": "0.6.0",
   "_resolution": {
     "type": "version",
-    "tag": "0.5.2",
-    "commit": "40be295f5bfbef4d472297500bc8622abfb61449"
+    "tag": "0.6.0",
+    "commit": "df21b140b7320e1e149f046f29568b63d5a6da3c"
   },
   "_source": "git://github.com/stormpath/stormpath-sdk-angularjs.git",
-  "_target": "~0.5.2",
+  "_target": "~0.6.0",
   "_originalSource": "stormpath-sdk-angularjs",
   "_direct": true
 }

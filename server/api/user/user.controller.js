@@ -31,20 +31,19 @@ module.exports = function(app) {
     * Get a list of system users
     */
     function index(req, res) {
-        
-        req.getConnection(function(err, conn) {
-            if (err) { 
-                return internalServerError(res, 'Cannot Connect: ' + err); 
-            }
+			req.getConnection(function(err, conn) {
+					if (err) { 
+							return internalServerError(res, 'Cannot Connect: ' + err); 
+					}
 
-            var sqlstm = 'select * from mt_user';
-            var query = conn.query(sqlstm, function(err, rows) {
-                if(err) {
-                    return internalServerError(res, 'Mysql error, check your query: ' + err);
-                }
-                return res.status(200).json(rows);
-            });
-        });
+					var sqlstm = 'select * from mt_user';
+					var query = conn.query(sqlstm, function(err, rows) {
+							if(err) {
+									return internalServerError(res, 'Mysql error, check your query: ' + err);
+							}
+							return res.status(200).json(rows);
+					});
+			});
     }
     
     /**
@@ -134,41 +133,43 @@ module.exports = function(app) {
     * Update user data based on its id
     */
     function update(req, res) {
-        if (!req.params.id) {
-            return badRequest(res, 'You must send the user id');
-        }
-        
-        if(!req.body.user) {
-            return badRequest(res, 'You must send the user data');
-        }
-        
-        req.getConnection(function (err, conn){
-            if (err) { 
-                return internalServerError(res, 'Cannot Connect: ' + err); 
-            }
-            
-            var data = {
-                email: req.body.user.email,
-                firstname: req.body.user.firstname,
-                lastname: req.body.user.lastname,
-                zipcode: req.body.user.zipcode,
-                gender: req.body.user.gender,
-                birthdate: req.body.user.birthdate
-            };
-            var sqlstm = 'update mt_user set ? where user_id = ? ';
-            var query = conn.query(sqlstm, [data, req.params.id], function(err, info) {
-                if(err) {
-                    return internalServerError(res, 'Mysql error, check your query: ' + err);
-                }
+			console.log(req.body.account, req.body.password);
+			return res.status(200).json('User updated');
+			/*if (!req.params.id) {
+					return badRequest(res, 'You must send the user id');
+			}
 
-                //if user not found
-                if(info.changedRows < 1) { 
-                    return notFound(res, 'User Not found'); 
-                }
+			if(!req.body.user) {
+					return badRequest(res, 'You must send the user data');
+			}
 
-                return res.status(200).json('User updated');
-            });
-        });
+			req.getConnection(function (err, conn){
+					if (err) { 
+							return internalServerError(res, 'Cannot Connect: ' + err); 
+					}
+
+					var data = {
+							email: req.body.user.email,
+							firstname: req.body.user.firstname,
+							lastname: req.body.user.lastname,
+							zipcode: req.body.user.zipcode,
+							gender: req.body.user.gender,
+							birthdate: req.body.user.birthdate
+					};
+					var sqlstm = 'update mt_user set ? where user_id = ? ';
+					var query = conn.query(sqlstm, [data, req.params.id], function(err, info) {
+							if(err) {
+									return internalServerError(res, 'Mysql error, check your query: ' + err);
+							}
+
+							//if user not found
+							if(info.changedRows < 1) { 
+									return notFound(res, 'User Not found'); 
+							}
+
+							return res.status(200).json('User updated');
+					});
+			});*/
     }
     
     /**

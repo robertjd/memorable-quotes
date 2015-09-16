@@ -24,6 +24,6 @@
     "angular-mocks": "~1.4.1",
     "angular-resource": "~1.4.4",
     "angularjs": "~1.4.3",
-    "stormpath-sdk-angularjs": "~0.5.2"
+    "stormpath-sdk-angularjs": "~0.6.0"
   }
 }

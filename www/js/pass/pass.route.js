@@ -14,6 +14,12 @@
 			controller: 'ForgotpassCtrl as fpc',
 			cache: false
 		})
+		.state('passwordReset', {
+			url: '/password/reset?sptoken',
+			templateUrl: 'js/pass/password-reset-template.html',
+			controller: 'PasswordResetCtrl as prc',
+			cache: false
+		})
 		.state('menu.chgpass', {
 			url: '^/chgpass',
 			views: {

@@ -4,9 +4,8 @@
   "description": "mt server",
   "main": "app.js",
   "scripts": {
-    "start": "NODE_ENV=production node server/app.js",
-    "test": "NODE_ENV=development node server/app.js",
-    "dev": "NODE_ENV=development nodemon server/app.js"
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js"
   },
   "keywords": [
     "node",
@@ -26,14 +25,13 @@
     "express": "^4.13.0",
     "express-jwt": "^3.0.1",
     "express-myconnection": "^1.0.4",
+    "express-stormpath": "^2.0.4",
     "jsonwebtoken": "^5.0.4",
     "lodash": "^3.10.0",
     "method-override": "^2.3.5",
     "moment": "^2.10.3",
     "mysql": "^2.7.0",
-    "passport": "^0.2.2",
-    "passport-local": "^1.0.0",
-    "stormpath-sdk-express": "^0.4.9"
+    "stormpath-sdk-express": "^0.4.10"
   },
   "devDependencies": {
     "nodemon": "^1.4.0"

@@ -4,9 +4,9 @@
 	angular.module('app.core')
 	.run(run);
 
-	run.$inject = ['$ionicPlatform', '$rootScope', '$httpBackend', '$ionicLoading', '$stormpath'];
+	run.$inject = ['$ionicPlatform', '$rootScope', '$httpBackend', '$state', '$ionicLoading', '$stormpath'];
 	/* @ngInject */
-	function run($ionicPlatform, $rootScope, $httpBackend, $ionicLoading, $stormpath) {
+	function run($ionicPlatform, $rootScope, $httpBackend, $state, $ionicLoading, $stormpath) {
 		
 		$ionicPlatform.ready(function() {
 			// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -21,16 +21,20 @@
 		});
 
 		$stormpath.uiRouter({
-			/*loginState: 'login',*/
+			loginState: 'login',
 			defaultPostLoginState: 'menu.home'
 		});
 		
-		$rootScope.$on('$currentUser', function(event) {
-			console.log('$currentUser event', event.targetScope.user);
+		$rootScope.$on('$currentUser', function(event, user) {
+			$state.go('menu.home', {}, {reload: true});
+		});
+		
+		$rootScope.$on('$authenticated', function(event, user) {
+			//console.log(user);
 		});
 		
 		$rootScope.$on('$notLoggedin', function(event) {
-			console.log('$notLoggedin event', event.targetScope);
+			$state.go('login');
 		});
 		
 		$rootScope.$on('loading:show', function() {

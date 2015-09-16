@@ -10,7 +10,4 @@ module.exports = {
   SESSION_SECRET: "mt-secret",
   // Control debug level for modules using visionmedia/debug
   DEBUG: '',
-	STORMPATH_API_KEY_ID: '6PZEDRW0KPXB8VLO880VCO18W',
-	STORMPATH_API_KEY_SECRET: 'Bb6q1US6Eg+gTacbeVFB4D9Sgu3xEBqVBGqcB2BGATE',
-	STORMPATH_APP_HREF: 'https://api.stormpath.com/v1/applications/2biRP4LkOm3pZD5Bpynvga'
 };
