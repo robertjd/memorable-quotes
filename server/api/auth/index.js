@@ -1,40 +1,41 @@
 'use strict';
 
-var express = require('express');
+module.exports = function() {
 
-module.exports = function(app) {
-    
 	return chgPassCb;
 };
 
 function chgPassCb(req, res) {
-	
+
+	var app = req.app.get('stormpathMiddleware').getApplication();
+	var currentPassword = req.body.currentPassword;
+
 	var account = {
 		username: req.user.username,
-		password: req.body.currentPassword
+		password: currentPassword
 	};
-	
-	var app = req.app.get('stormpathApplication');
-	app.authenticateAccount(account, authAccountCb);
+
+	app.authenticateAccount(account, authAccountCb.bind(null,req, res));
 }
 
-function authAccountCb(err, authenticationResult) {
-	
+function authAccountCb(req, res, err, authenticationResult) {
+
 	if(err) {
 		// tell the user that their password is invalid
-		console.log(err);
+		res.status(400).json(err);
 	} else {
 		req.user.password = req.body.newPassword;
-		req.user.save(savecb);
+		req.user.save(saveCb.bind(null,res));
 	}
 }
 
-function saveCb(err) {
-	
+function saveCb(res,err) {
+
 	if(err) {
 		// may be that their password is too short, etc
-		console.log(err);
+		res.status(400).json(err);
 	} else {
 		console.log('password was saved');
+		res.end();
 	}
 }

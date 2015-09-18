@@ -8,7 +8,8 @@ var path = require('path');
 var stormpath = require('express-stormpath');
 var stormpathExpressSdk = require('stormpath-sdk-express');
 var spMiddleware = stormpathExpressSdk.createMiddleware({
-	allowedOrigins: ['http://192.168.0.16:8100']
+	allowedOrigins: ['http://localhost:8100'],
+	xsrf: false
 });
 /*var spConfig = {
   appHref: process.env['STORMPATH_APP_HREF'],
